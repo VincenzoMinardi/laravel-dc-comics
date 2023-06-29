@@ -2,21 +2,15 @@
 
 namespace App\Http\Controllers\Guest;
 
-
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
-
 
 class ComicsController extends Controller
 {
     public function index()
     {
-        $comics = Comic::paginate(5); // SELECT * FROM `pastas`
-
-        // dd($pastas);
+        $comics = Comic::paginate(5); // SELECT * FROM `comics`
 
         return view('comics.index', compact('comics'));
     }
@@ -26,8 +20,10 @@ class ComicsController extends Controller
         return view('comics.create');
     }
 
-    public function show(Comic  $comic)
+    public function show($id)
     {
+        $comic = Comic::findOrFail($id);
+
         return view('comics.show', compact('comic'));
     }
 }
