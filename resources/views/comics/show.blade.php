@@ -1,4 +1,4 @@
-@extends('comics')
+@extends('comics/comics')
 
 @section('contents')
     
