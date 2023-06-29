@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comic;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Comic;
 
 class ComicsTableSeeder extends Seeder
 {
@@ -15,10 +15,17 @@ class ComicsTableSeeder extends Seeder
      */
     public function run()
     {
-
         foreach (config('comics') as $comic) {
-            // creare la riga nel database
-            Comic::create($comic);
+
+            Comic::create([
+                'title' => $comic['title'],
+                'description' => $comic['description'],
+                'thumb' => $comic['thumb'],
+                'price' => $comic['price'],
+                'series' => $comic['series'],
+                'sale_date' => $comic['sale_date'],
+                'type' => $comic['type'],
+            ]);
         }
     }
 }
