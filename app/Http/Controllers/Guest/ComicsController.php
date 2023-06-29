@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Guest;
 
 
+use App\Models\Comic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Comic;
+
+
 
 
 class ComicsController extends Controller
