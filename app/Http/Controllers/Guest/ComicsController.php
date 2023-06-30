@@ -26,4 +26,28 @@ class ComicsController extends Controller
 
         return view('comics.show', compact('comic'));
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title'           => 'string|max:200',
+            'price'           => 'string|max:100',
+            'series'          => 'string|max:100',
+            'sale_date'       => 'max:255',
+            'type'            => 'max:100',
+            'descrizione'     => 'string| max:2000',
+        ]);
+
+
+
+        $data = $request->all();
+
+        $newComics = new Comic();
+        $newComics->title = $data['title'];
+        $newComics->price = $data['price'];
+        $newComics->series = $data['series'];
+        $newComics->sale_date = $data['sale_date'];
+        $newComics->type = $data['type'];
+        $newComics->save();
+    }
 }
