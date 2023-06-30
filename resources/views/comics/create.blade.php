@@ -7,7 +7,7 @@
   <div class="mb-3">
       <label for="title" class="form-label">Titolo</label>
       <input
-          type="string"
+          type="text"
           class="form-control @error('title') is-invalid @enderror"
           id="title"
           name="title"
@@ -19,9 +19,23 @@
   </div>
 
   <div class="mb-3">
+    <label for="thumb" class="form-label">Immagine</label>
+    <input
+        type="text"
+        class="form-control @error('thumb') is-invalid @enderror"
+        id="thumb"
+        name="thumb"
+        value="{{ old('thumb') }}"
+    >
+    <div class="invalid-feedback">
+        @error('thumb') {{ $message }} @enderror
+    </div>
+</div>
+
+  <div class="mb-3">
       <label for="price" class="form-label">prezzo</label>
       <input
-          type="string"
+          type="text"
           class="form-control @error('price') is-invalid @enderror"
           id="price"
           name="price"
@@ -35,7 +49,7 @@
   <div class="mb-3">
       <label for="series" class="form-label">Serie</label>
       <input
-          type="string"
+          type="text"
           class="form-control @error('series') is-invalid @enderror"
           id="series"
           name="series"
@@ -49,7 +63,7 @@
   <div class="mb-3">
       <label for="sale_date" class="form-label">Data Vendita</label>
       <input
-          type="string"
+          type="date"
           class="form-control @error('sale_date') is-invalid @enderror"
           id="sale_date"
           name="sale_date"
@@ -63,7 +77,7 @@
   <div class="mb-3">
       <label for="peso" class="form-label">Tipologia</label>
       <input
-          type="string"
+          type="text"
           class="form-control @error('type') is-invalid @enderror"
           id="type"
           name="type"
