@@ -10,7 +10,7 @@ class ComicsController extends Controller
 {
     public function index()
     {
-        $comics = Comic::paginate(5); // SELECT * FROM `comics`
+        $comics = Comic::paginate(5);
 
         return view('comics.index', compact('comics'));
     }
@@ -18,13 +18,6 @@ class ComicsController extends Controller
     public function create()
     {
         return view('comics.create');
-    }
-
-    public function show($id)
-    {
-        $comic = Comic::findOrFail($id);
-
-        return view('comics.show', compact('comic'));
     }
 
     public function store(Request $request)
@@ -49,5 +42,14 @@ class ComicsController extends Controller
         $newComics->sale_date = $data['sale_date'];
         $newComics->type = $data['type'];
         $newComics->save();
+
+        return redirect()->route('comics.show', ['comic' => $newComics->id]);
+    }
+
+    public function show($id)
+    {
+        $comic = Comic::findOrFail($id);
+
+        return view('comics.show', compact('comic'));
     }
 }
