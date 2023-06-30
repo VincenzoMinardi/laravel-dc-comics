@@ -23,12 +23,12 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'           => 'string|max:200',
-            'price'           => 'string|max:100',
-            'series'          => 'string|max:100',
-            'sale_date'       => 'max:255',
+            'title'           => 'max:200',
+            'price'           => 'max:100',
+            'series'          => 'max:100',
+            'sale_date'       => 'dateTime|max:255',
             'type'            => 'max:100',
-            'descrizione'     => 'string| max:2000',
+            'descrizione'     => '|max:2000',
         ]);
 
 
