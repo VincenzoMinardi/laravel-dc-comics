@@ -3,10 +3,11 @@
 @section('contents')
 <h1 class="text-center">Comics</h1>
 
-@if (session('delete_comlpeted'))
+@if (session('delete_completed'))
 @php $comic = session('delete_completed') @endphp
 <div class="alert alert-danger">
     Il film "{{ $comic->title }}" è stata eliminato
+</div>
 @endif
   
   <div class="container">
@@ -28,14 +29,14 @@
       <a class="btn btn-primary" href="{{ route('comics.show', ['comic' => $comic->id]) }}">VIEW</a>
       <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">CREATE</a>
       <form
-      action="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
-      method="post"
-      class="d-inline-block"
-  >
-      @csrf
-      @method('delete')
-      <input type="submit"class="btn btn-danger">
-  </form>
+        action="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
+        method="POST"
+        class="d-inline-block">
+        @csrf
+        @method('delete')
+        <button class="btn btn-danger" type="submit">DELETE</button>
+        
+      </form>
     </div>
   </div>
  </div>
