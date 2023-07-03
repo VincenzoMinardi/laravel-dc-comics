@@ -86,4 +86,12 @@ class ComicsController extends Controller
 
         return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
+
+    public function destroy(Comic $comic)
+    {
+        // se avete attivato i soft deletes diventa soft
+        $comic->delete();
+
+        return to_route('comics.index')->with('delete_success', $comic);
+    }
 }
