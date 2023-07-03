@@ -2,7 +2,7 @@
 
 @section('contents')
 <h1>Inserisci Nuovo Film Comics!</h1>
-<form method="POST" action="{{ route('comics.store') }}">
+<form method="POST" action="{{ route('comics.update' , ['comic' => $comic->id]) }}">
   @csrf
 
   <div class="mb-3">

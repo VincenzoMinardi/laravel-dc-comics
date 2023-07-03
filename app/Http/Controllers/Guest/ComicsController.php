@@ -92,6 +92,6 @@ class ComicsController extends Controller
         // se avete attivato i soft deletes diventa soft
         $comic->delete();
 
-        return to_route('comics.index')->with('delete_success', $comic);
+        return to_route('comics.index')->with('delete_completed', $comic);
     }
 }
