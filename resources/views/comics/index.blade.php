@@ -19,7 +19,7 @@
         </ul>
       <div class="card-body">
       <a class="btn btn-primary" href="{{ route('comics.show', ['comic' => $comic->id]) }}">View</a>
-      <a class="btn btn-warning" href="{{ route('comics.create', ['comic' => $comic->id]) }}">create</a>
+      <a class="btn btn-warning" href="{{ route('comics.edit', ['comic' => $comic->id]) }}">create</a>
     </div>
   </div>
  </div>
